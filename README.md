@@ -16,3 +16,24 @@ The container will exit gracefully after the time period has passed.
 Command Line:
 
     docker run --name wait clickbg/wait:latest 10m
+
+Compose (v2.11.2):
+
+      wait:
+        image: clickbg/wait:latest
+        container_name: wait
+        restart: "no"
+        command: 2m
+    
+      wwwlb:
+        container_name: wwwlb
+        restart: always
+        image: nginx:latest
+        depends_on:
+          wait:
+            condition: service_completed_successfully
+        volumes:
+          - ${CONFDIR}/wwwlb/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+        ports:
+          - "80:80"
+          - "443:443"
