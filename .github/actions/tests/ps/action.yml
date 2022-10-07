@@ -7,5 +7,5 @@ runs:
   using: "composite"
   steps:
     - name: "Test if wait has started"
-      run: docker ps | grep "homekit-monitord-${{ inputs.name }}"
+      run: docker ps | grep "wait-${{ inputs.name }}"
       shell: bash
