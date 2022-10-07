@@ -8,7 +8,7 @@
 <img src="https://www.docker.com/wp-content/uploads/2022/03/vertical-logo-monochromatic.png" width="20" height="20"> [Avaliable on DockerHub](https://hub.docker.com/r/clickbg/wait)
 
 Pause for a time equal to the total of the args given, where each arg can
-have an optional suffix of (s)econds, (m)inutes, (h)ours, or (d)ays
+have an optional suffix of (s)econds, (m)inutes, (h)ours, or (d)ays  
 The container will exit gracefully after the time period has passed.
 
 **Usage**
