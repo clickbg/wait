@@ -17,7 +17,7 @@ jobs:
       id: check
       uses: lucacome/docker-image-update-checker@v1
       with:
-        base-image: library/alpine:latest
+        base-image: library/busybox:latest
         image: clickbg/wait:latest
 
   cicd:

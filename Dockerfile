@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM busybox:stable
 
 RUN ln -s /usr/bin/dpkg-split /usr/sbin/dpkg-split
 RUN ln -s /usr/bin/dpkg-deb /usr/sbin/dpkg-deb
