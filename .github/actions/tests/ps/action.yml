@@ -1,0 +1,11 @@
+inputs:
+  name:
+    description: 'Container Name'
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    - name: "Test if wait has started"
+      run: docker ps | grep "wait-${{ inputs.name }}"
+      shell: bash

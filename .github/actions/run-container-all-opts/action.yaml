@@ -1,0 +1,20 @@
+inputs:
+  build-id:
+    description: 'Build id'
+    required: true
+
+outputs:
+  name:
+    description: "Container Name"
+    value: ${{ steps.gen_id.outputs.id }}
+
+runs:
+  using: "composite"
+  steps:
+    - name: "Generate a number"
+      id: gen_id
+      run: echo "::set-output name=id::$(( ((RANDOM<<15)|RANDOM) % 49152 + 10000 ))"
+      shell: bash
+    - name: "Run the container locally"
+      run: docker run -d --rm --name wait-${{ steps.gen_id.outputs.id }} wait:${{ inputs.build-id }} 2m
+      shell: bash
